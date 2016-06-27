@@ -2,36 +2,27 @@
 
 namespace Mongrate\MongrateBundle\Service;
 
+use Mongrate\Model\Name;
+use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Mongrate\Service\MigrationService;
 
 class ContainerAwareMigrationService extends MigrationService implements ContainerAwareInterface
 {
-    /**
-     * @var ContainerInterface $container
-     */
-    private $container;
- 
-    /**
-     * @param ContainerInterface $container
-     */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
+    use ContainerAwareTrait;
     
     /**
      * @inheritdoc
      */
     public function createMigrationInstance(Name $name, OutputInterface $output)
     {
-        $migration = parent::createMigrationInstance(Name $name, OutputInterface $output);
-        
+        $migration = parent::createMigrationInstance($name, $output);
+
         if ($migration instanceof ContainerAwareInterface) {
             $migration->setContainer($this->container);
         }
-        
+
         return $migration;
     }
 }
