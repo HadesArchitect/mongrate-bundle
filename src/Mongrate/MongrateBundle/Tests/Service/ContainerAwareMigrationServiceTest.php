@@ -21,7 +21,7 @@ class ContainerAwareMigrationServiceTest extends \PHPUnit_Framework_TestCase
     {
         $config = [
             'migrations_directory' => 'src/Mongrate/MongrateBundle/Tests/Fixtures/',
-            'mongodb_server' => 'mongo',
+            'mongodb_server' => 'localhost',
             'mongodb_db' => 'test'
         ];
 
