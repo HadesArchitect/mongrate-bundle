@@ -24,7 +24,7 @@ abstract class AbstractCommandTest extends \PHPUnit_Framework_TestCase
 
         $this->config = [
             'migrations_directory' => '/',
-            'mongodb_server' => 'mongo',
+            'mongodb_server' => 'localhost',
             'mongodb_db' => 'test'
         ];
     }
