@@ -1,3 +1,9 @@
 /vendor/
 composer.lock
 .idea
+/cache/
+/test-app/app/cache/*
+!/test-app/app/cache/.gitkeep
+/test-app/app/logs/*
+!/test-app/app/logs/.gitkeep
+/test-app/vendor-*
